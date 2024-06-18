@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="balance-sheet.png" />
     <title>Age Calculator</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <div class="container">
-        <h1>Age Calculator</h1>
+        <h1>Age Calculate</h1>
         <div class="form">
             <label for="birthday">Enter you date of birth</label>
             <input type="date" id="birthday" name="birthday">
             <button id="btn">Calculate Age</button>
-            <p id="result">Your age is 21 years old</p>
+            <p id="result">Sabar kar Bhai😅</p>
         </div>
     </div>
 
@@ -31,7 +32,7 @@
         function calculateAge() {
             const birthdayValue = birthdayEl.value;
             if (birthdayValue === "") {
-                alert("Please enter your birthday");
+                alert("Birthday Bhul Gaya Kya 😅");
             } else {
                 const age = getAge(birthdayValue);
                 resultEl.innerText = `Your age is ${age} ${age > 1 ? "years" : "year"} old`;
