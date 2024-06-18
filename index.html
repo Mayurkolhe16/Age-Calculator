@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Calculator</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <div class="container">
         <h1>Age Calculator</h1>
@@ -18,7 +20,43 @@
     </div>
 
     <div class="copy">
-        <span>&copy; Designed by Mayur Kolhe</span>
+        <span>Designed by Mayur Kolhe</span>
     </div>
+
+    <script>
+        const btnEl = document.getElementById("btn");
+        const birthdayEl = document.getElementById("birthday");
+        const resultEl = document.getElementById("result");
+
+        function calculateAge() {
+            const birthdayValue = birthdayEl.value;
+            if (birthdayValue === "") {
+                alert("Please enter your birthday");
+            } else {
+                const age = getAge(birthdayValue);
+                resultEl.innerText = `Your age is ${age} ${age > 1 ? "years" : "year"} old`;
+            }
+        }
+
+        function getAge(birthdayValue) {
+            const currentDate = new Date();
+            const birthdayDate = new Date(birthdayValue);
+            let age = currentDate.getFullYear() - birthdayDate.getFullYear();
+            const month = currentDate.getMonth() - birthdayDate.getMonth();
+
+            if (
+                month < 0 ||
+                (month === 0 && currentDate.getDate() < birthdayDate.getDate())
+            ) {
+                age--;
+            }
+
+            return age;
+        }
+
+        btnEl.addEventListener("click", calculateAge);
+
+    </script>
 </body>
+
 </html>
